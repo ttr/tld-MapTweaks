@@ -14,6 +14,10 @@ namespace MapTweaks
 		[Slider(0.1f, 5f)]
 		public float timeMulti = 1f;
 
+		[Name("Polarods discovered")]
+		[Description("Surveying vistas w/o polaroid will silently add it to inventory. Finding polaroids will not discover their locations.")]
+		public bool assumePolaroids = false;
+
 	}
 	internal static class Settings
 	{

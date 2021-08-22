@@ -1,6 +1,5 @@
-﻿using Harmony;
+﻿using HarmonyLib;
 using MelonLoader;
-using UnityEngine;
 
 
 namespace MapTweaks
@@ -12,12 +11,35 @@ namespace MapTweaks
         [HarmonyPatch(typeof(Panel_Map), "DoNearbyDetailsCheck")]
         public class MapTweaksDrawing
         {
-            public static void Prefix(ref float radius)
+            public static void Prefix(ref float radius, ref bool shouldAllowVistaReveals)
             {
                 radius *= Settings.options.rangeMulti;
-                // MelonLogger.Log("range: " + radius);
+                MelonLogger.Msg("range: " + radius + " " + shouldAllowVistaReveals);
             }
         }
+        [HarmonyPatch(typeof(Panel_Map), "HasVistaLocationRequiredGearItem")]
+        public class panel_map_HasVistaLocationRequiredGearItem
+        {
+            public static void Postfix(VistaLocation vistaLocation, bool __result)
+            {
+                if (Settings.options.assumePolaroids && !__result)
+                {
+                    MelonLogger.Msg(__result + " Would add: " + vistaLocation.m_RequiredGearItem.name);
+                    GameManager.GetPlayerManagerComponent().AddItemToPlayerInventory(vistaLocation.m_RequiredGearItem);
+                }
+            }
+        }
+        [HarmonyPatch(typeof(Panel_Map), "RevealOnPolaroidDiscovery")]
+        public class panel_map_RevealOnPolaroidDiscovery
+        {
+            public static bool Prefix()
+            {
+                if (Settings.options.assumePolaroids)
+                { return false; }
+                return true;
+            }
+        }
+
         [HarmonyPatch(typeof(CharcoalItem))]
         [HarmonyPatch("Awake")]
         class PatchCharcoalMappingTime
@@ -25,10 +47,7 @@ namespace MapTweaks
             static void Postfix(CharcoalItem __instance)
             {
                 __instance.m_SurveyGameMinutes *= Settings.options.timeMulti;
-                // MelonLogger.Log("time: " + __instance.m_SurveyGameMinutes);
             }
         }
-
     }
-
 }

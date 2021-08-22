@@ -38,8 +38,14 @@
     </Reference>
     <Reference Include="Il2Cppmscorlib, Version=3.7.1.6, Culture=neutral, processorArchitecture=MSIL" />
     <Reference Include="Il2CppSystem, Version=3.7.1.6, Culture=neutral, processorArchitecture=MSIL" />
-    <Reference Include="MelonLoader.ModHandler, Version=0.2.7.1, Culture=neutral, processorArchitecture=MSIL" />
-    <Reference Include="ModSettings, Version=1.6.0.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="MelonLoader, Version=0.4.3.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\Games\SteamLibrary\steamapps\common\TheLongDark\MelonLoader\MelonLoader.dll</HintPath>
+    </Reference>
+    <Reference Include="ModSettings, Version=1.8.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\Games\SteamLibrary\steamapps\common\TheLongDark\Mods\ModSettings.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
