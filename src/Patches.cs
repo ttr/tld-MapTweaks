@@ -1,5 +1,5 @@
-﻿using HarmonyLib;
-using MelonLoader;
+﻿using MelonLoader;
+using HarmonyLib;
 
 
 namespace MapTweaks
@@ -24,7 +24,7 @@ namespace MapTweaks
             {
                 if (Settings.options.assumePolaroids && !__result)
                 {
-                    MelonLogger.Msg(__result + " Would add: " + vistaLocation.m_RequiredGearItem.name);
+                    MelonLogger.Msg("Silent add: " + vistaLocation.m_RequiredGearItem.name);
                     GameManager.GetPlayerManagerComponent().AddItemToPlayerInventory(vistaLocation.m_RequiredGearItem);
                 }
             }
