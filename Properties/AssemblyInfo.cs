@@ -1,38 +1,14 @@
 ﻿using MelonLoader;
 using System.Reflection;
-using System.Runtime.InteropServices;
 
-// General Information about an assembly is controlled through the following
-// set of attributes. Change these attribute values to modify the information
-// associated with an assembly.
-[assembly: AssemblyTitle("MapTweaks")]
-[assembly: AssemblyDescription("")]
-[assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("MapTweaks")]
-[assembly: AssemblyCopyright("Copyright ©  2021")]
-[assembly: AssemblyTrademark("")]
-[assembly: AssemblyCulture("")]
+//This is a C# comment. Comments have no impact on compilation.
 
-// Setting ComVisible to false makes the types in this assembly not visible
-// to COM components.  If you need to access a type in this assembly from
-// COM, set the ComVisible attribute to true on that type.
-[assembly: ComVisible(false)]
+[assembly: AssemblyTitle(MapTweaks.BuildInfo.ModName)]
+[assembly: AssemblyCopyright($"Created by " + MapTweaks.BuildInfo.ModAuthor)]
 
-// The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("510300d9-69d5-448c-9efc-4edec76f9bc9")]
+[assembly: AssemblyVersion(MapTweaks.BuildInfo.ModVersion)]
+[assembly: AssemblyFileVersion(MapTweaks.BuildInfo.ModVersion)]
+[assembly: MelonInfo(typeof(MapTweaks.MapTweaks), MapTweaks.BuildInfo.ModName, MapTweaks.BuildInfo.ModVersion, MapTweaks.BuildInfo.ModAuthor)]
 
-// Version information for an assembly consists of the following four values:
-//
-//      Major Version
-//      Minor Version
-//      Build Number
-//      Revision
-//
-// You can specify all the values or you can default the Build and Revision Numbers
-// by using the '*' as shown below:
-// [assembly: AssemblyVersion("1.0.*")]
-[assembly: AssemblyVersion("1.0.0.0")]
-[assembly: AssemblyFileVersion("1.0.0.0")]
-[assembly: MelonInfo(typeof(MapTweaks.MapTweaks), "MapTweaks", "2.3", "MikeyPdog, AlexTheRegent, ttr")]
+//This tells MelonLoader that the mod is only for The Long Dark.
 [assembly: MelonGame("Hinterland", "TheLongDark")]

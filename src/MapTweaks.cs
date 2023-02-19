@@ -4,15 +4,20 @@ using UnityEngine;
 
 namespace MapTweaks
 {
-	internal class MapTweaks : MelonMod
+    public static class BuildInfo
+    {
+        internal const string ModName = "MapTweaks";
+        internal const string ModAuthor = "ttr, MikeyPdog, AlexTheRegent";
+        internal const string ModVersion = "2.4.0";
+    }
+    internal class MapTweaks : MelonMod
 	{
-
-		public override void OnApplicationStart()
-		{
-			Debug.Log($"[{Info.Name}] Version {Info.Version} loaded!");
-			Settings.OnLoad();
-		}
-	}
+        public override void OnInitializeMelon()
+        {
+            Settings.OnLoad();
+            LoggerInstance.Msg($"[{BuildInfo.ModName}] Version {BuildInfo.ModVersion} loaded!");
+        }
+    }
 }
 
 
